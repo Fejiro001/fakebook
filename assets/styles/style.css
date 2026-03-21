@@ -65,15 +65,16 @@ nav ul,
   font-size: 2.5rem;
 }
 
-nav a,
-.fa-image {
+nav a {
   color: var(--light-color);
 }
 
 nav a:hover,
+.fa-image,
 .fa-image:hover,
 textarea,
-input[type="submit"] {
+input[type="submit"],
+.file-name {
   color: var(--white-color);
 }
 
@@ -110,7 +111,7 @@ textarea {
 }
 
 .fa-image {
-  font-size: 3rem;
+  font-size: 2.5rem;
   cursor: pointer;
 }
 

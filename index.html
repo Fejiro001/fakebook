@@ -44,10 +44,13 @@
           <form>
             <textarea name="post" id="post" placeholder="What's on your mind?" rows="8"></textarea>
             <div class="form-footer">
-              <label for="file" title="Select an image">
-                <i class="fa-solid fa-image"></i>
-              </label>
-              <input type="file" name="file" id="file" accept="image/*" />
+              <div class="file-input">
+                <label for="file" title="Select an image">
+                  <i class="fa-solid fa-image"></i>
+                </label>
+                <input type="file" name="file" id="file" accept="image/*" />
+                <span class="file-name"></span>
+              </div>
               <input type="submit" value="Post" />
             </div>
           </form>
