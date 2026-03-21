@@ -39,17 +39,20 @@
       </div>
     </header>
     <main>
-      <div class="container posts-container">
-        <form action="">
-          <textarea name="post" id="post" placeholder="What's on your mind?" rows="8"></textarea>
-          <div class="form-footer">
-            <label for="file" title="Select an image">
-              <i class="fa-solid fa-image"></i>
-            </label>
-            <input type="file" name="file" id="file" accept="image/*" />
-            <input type="submit" value="Post" />
-          </div>
-        </form>
+      <div class="main-container">
+        <section class="form-container">
+          <form>
+            <textarea name="post" id="post" placeholder="What's on your mind?" rows="8"></textarea>
+            <div class="form-footer">
+              <label for="file" title="Select an image">
+                <i class="fa-solid fa-image"></i>
+              </label>
+              <input type="file" name="file" id="file" accept="image/*" />
+              <input type="submit" value="Post" />
+            </div>
+          </form>
+        </section>
+        <section class="posts-container" id="posts-section"></section>
       </div>
     </main>
   </body>
