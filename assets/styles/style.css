@@ -1,7 +1,7 @@
 @import "reset.css";
 
 :root {
-  --primary-color: #0365e4;
+  --primary-color: #2993ff;
   --secondary-color: #1f2229;
   --light-color: #bdbdbf;
   --white-color: #ffffff;
@@ -49,7 +49,9 @@ header {
 
 .header-container,
 nav ul,
-.form-footer {
+.form-footer,
+.post-header,
+.post-left {
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -77,8 +79,7 @@ input[type="submit"] {
 
 .profile-container {
   background-color: rgba(41, 148, 255, 0.8);
-  width: 5rem;
-  height: 5rem;
+  width: 4rem;
   border-radius: 50%;
   overflow: hidden;
   cursor: pointer;
@@ -92,7 +93,7 @@ main {
 }
 
 .main-container {
-  max-width: 50rem;
+  max-width: 55rem;
   margin-inline: auto;
 }
 
@@ -124,19 +125,31 @@ input[type="submit"] {
 }
 
 input[type="submit"]:hover {
-  box-shadow: 0 0 8px 4px rgba(3, 100, 228, 0.4);
+  box-shadow: 0 0 8px 4px rgba(3, 100, 228, 0.7);
 }
 
 /* POSTS */
 .posts-container article {
   background-color: var(--white-color);
+  display: grid;
+  place-items: center;
   border-radius: var(--border-radius);
   padding: 1.5rem;
   margin-top: 2rem;
 }
 
 .post-header {
-  margin-bottom: 1rem;
+  margin-bottom: 1.5rem;
+  width: 100%;
+}
+
+.post-left {
+  gap: 1rem;
+}
+
+.post-left h2 {
+  font-size: 1.8rem;
+  font-weight: 500;
 }
 
 .post-image {
