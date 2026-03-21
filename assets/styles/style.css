@@ -4,6 +4,7 @@
   --primary-color: #0365e4;
   --secondary-color: #1f2229;
   --light-color: #bdbdbf;
+  --white-color: #ffffff;
   --background-color: #14161d;
   --max-width: 1200px;
   --radius: 8px;
@@ -68,8 +69,10 @@ nav a,
 }
 
 nav a:hover,
-.fa-image:hover {
-  color: #fff;
+.fa-image:hover,
+textarea,
+input[type="submit"] {
+  color: var(--white-color);
 }
 
 .profile-container {
@@ -88,8 +91,9 @@ main {
   padding: 5rem;
 }
 
-.posts-container {
+.main-container {
   max-width: 50rem;
+  margin-inline: auto;
 }
 
 form {
@@ -101,7 +105,6 @@ form {
 textarea {
   background-color: transparent;
   resize: none;
-  color: #fff;
   font-size: 1.6rem;
 }
 
@@ -116,11 +119,18 @@ input[type="file"] {
 
 input[type="submit"] {
   background-color: var(--primary-color);
-  color: #fff;
   border-radius: var(--border-radius);
   padding: 0.5rem 1.5rem;
 }
 
 input[type="submit"]:hover {
   box-shadow: 0 0 8px 4px rgba(3, 100, 228, 0.4);
+}
+
+/* POSTS */
+.posts-container article {
+  background-color: var(--white-color);
+  border-radius: var(--border-radius);
+  padding: 1.5rem;
+  margin-top: 2rem;
 }
