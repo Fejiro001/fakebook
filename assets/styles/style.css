@@ -1,17 +1,24 @@
 @import "reset.css";
 
 :root {
-  --primary-color: #2993ff;
+  --primary-color: #0365e4;
   --secondary-color: #1f2229;
   --light-color: #bdbdbf;
   --background-color: #14161d;
   --max-width: 1200px;
   --radius: 8px;
   --transition: all 0.3s ease-in-out;
+  --header-height: 7rem;
+  --border-radius: 5px;
+  --gap: 2.5rem;
+}
+
+body {
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande", "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
 }
 
 .container {
-  max-width: min(100% - 50px, var(--max-width));
+  max-width: min(100% - 30px, var(--max-width));
   margin-inline: auto;
 }
 
@@ -23,9 +30,16 @@ a {
   text-decoration: none;
 }
 
+nav a,
+.fa-image,
+input[type="submit"] {
+  transition: var(--transition);
+}
+
+/* HEADER */
 header {
   background-color: var(--secondary-color);
-  height: 7rem;
+  height: var(--header-height);
 }
 
 .header-container {
@@ -33,23 +47,28 @@ header {
 }
 
 .header-container,
-nav ul {
+nav ul,
+.form-footer {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 2.5rem;
+  gap: var(--gap);
 }
 
 .app-name {
   color: var(--primary-color);
+  text-transform: uppercase;
+  font-weight: 500;
+  font-size: 2.5rem;
 }
 
-nav a {
+nav a,
+.fa-image {
   color: var(--light-color);
-  transition: var(--transition);
 }
 
-nav a:hover {
+nav a:hover,
+.fa-image:hover {
   color: #fff;
 }
 
@@ -60,4 +79,48 @@ nav a:hover {
   border-radius: 50%;
   overflow: hidden;
   cursor: pointer;
+}
+
+/* FORM */
+main {
+  background-color: var(--background-color);
+  min-height: calc(100svh - var(--header-height));
+  padding: 5rem;
+}
+
+.posts-container {
+  max-width: 50rem;
+}
+
+form {
+  background-color: var(--secondary-color);
+  padding: 1.5rem;
+  border-radius: var(--border-radius);
+}
+
+textarea {
+  background-color: transparent;
+  resize: none;
+  color: #fff;
+  font-size: 1.6rem;
+}
+
+.fa-image {
+  font-size: 3rem;
+  cursor: pointer;
+}
+
+input[type="file"] {
+  display: none;
+}
+
+input[type="submit"] {
+  background-color: var(--primary-color);
+  color: #fff;
+  border-radius: var(--border-radius);
+  padding: 0.5rem 1.5rem;
+}
+
+input[type="submit"]:hover {
+  box-shadow: 0 0 8px 4px rgba(3, 100, 228, 0.4);
 }

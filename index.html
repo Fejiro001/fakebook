@@ -6,10 +6,17 @@
     <meta name="author" content="Oghenefejiro Stephanie Abere" />
     <meta name="description" content="A social media website" />
     <meta name="keywords" content="fakebook, social media, html, css, web, web development" />
-    <link rel="icon" href="./assets/media/favicon.png" type="image/x-icon" />
+    <link rel="icon" href="./assets/media/favicon.png?v=2" type="image/x-icon" />
     <title>Shape Factory</title>
     <link rel="stylesheet" href="./assets/styles/style.css" media="all" />
     <script src="./assets/script/app.js" defer type="module"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+      integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
   </head>
   <body>
     <header>
@@ -31,5 +38,19 @@
         </div>
       </div>
     </header>
+    <main>
+      <div class="container posts-container">
+        <form action="">
+          <textarea name="post" id="post" placeholder="What's on your mind?" rows="8"></textarea>
+          <div class="form-footer">
+            <label for="file" title="Select an image">
+              <i class="fa-solid fa-image"></i>
+            </label>
+            <input type="file" name="file" id="file" accept="image/*" />
+            <input type="submit" value="Post" />
+          </div>
+        </form>
+      </div>
+    </main>
   </body>
 </html>
