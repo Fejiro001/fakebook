@@ -1,1 +1,44 @@
 @import "reset.css";
+
+:root {
+  --primary-color: #2993ff;
+  /* --primary-color: #0365E4; */
+  --secondary-color: #1f2229;
+  --light-color: #bdbdbf;
+  --background-color: #14161d;
+  --max-width: 1200px;
+  --radius: 8px;
+  --transition: all 0.3s ease-in-out;
+}
+
+.container {
+  max-width: min(100% - 30px, var(--max-width));
+  margin-inline: auto;
+}
+
+li {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+header {
+  background-color: var(--secondary-color);
+  height: 6rem;
+}
+
+.header-container, nav ul {
+  display: flex;
+  gap: 2rem;
+}
+
+nav a {
+  color: var(--light-color);
+  transition: var(--transition);
+}
+
+nav a:hover {
+  color: #fff;
+}
