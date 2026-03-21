@@ -2,7 +2,6 @@
 
 :root {
   --primary-color: #2993ff;
-  /* --primary-color: #0365E4; */
   --secondary-color: #1f2229;
   --light-color: #bdbdbf;
   --background-color: #14161d;
@@ -26,12 +25,23 @@ a {
 
 header {
   background-color: var(--secondary-color);
-  height: 6rem;
+  height: 7rem;
 }
 
-.header-container, nav ul {
+.header-container {
+  height: 100%;
+}
+
+.header-container,
+nav ul {
   display: flex;
-  gap: 2rem;
+  align-items: center;
+  justify-content: space-between;
+  gap: 2.5rem;
+}
+
+.app-name {
+  color: var(--primary-color);
 }
 
 nav a {
@@ -41,4 +51,12 @@ nav a {
 
 nav a:hover {
   color: #fff;
+}
+
+.profile-container {
+  width: 5rem;
+  height: 5rem;
+  border-radius: 50%;
+  background-color: var(--primary-color);
+  overflow: hidden;
 }
