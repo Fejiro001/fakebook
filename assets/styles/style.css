@@ -1,1 +1,63 @@
 @import "reset.css";
+
+:root {
+  --primary-color: #2993ff;
+  --secondary-color: #1f2229;
+  --light-color: #bdbdbf;
+  --background-color: #14161d;
+  --max-width: 1200px;
+  --radius: 8px;
+  --transition: all 0.3s ease-in-out;
+}
+
+.container {
+  max-width: min(100% - 50px, var(--max-width));
+  margin-inline: auto;
+}
+
+li {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+header {
+  background-color: var(--secondary-color);
+  height: 7rem;
+}
+
+.header-container {
+  height: 100%;
+}
+
+.header-container,
+nav ul {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 2.5rem;
+}
+
+.app-name {
+  color: var(--primary-color);
+}
+
+nav a {
+  color: var(--light-color);
+  transition: var(--transition);
+}
+
+nav a:hover {
+  color: #fff;
+}
+
+.profile-container {
+  background-color: rgba(41, 148, 255, 0.8);
+  width: 5rem;
+  height: 5rem;
+  border-radius: 50%;
+  overflow: hidden;
+  cursor: pointer;
+}
