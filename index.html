@@ -10,6 +10,13 @@
     <title>Shape Factory</title>
     <link rel="stylesheet" href="./assets/styles/style.css" media="all" />
     <script src="./assets/script/app.js" defer type="module"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+      integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
   </head>
   <body>
     <header>
@@ -31,5 +38,19 @@
         </div>
       </div>
     </header>
+    <main>
+      <div class="container">
+        <form action="">
+          <textarea name="post" id="post" placeholder="What's on your mind?"></textarea>
+          <div class="form-footer">
+            <label for="file">
+              <i class="fa-solid fa-image"></i>
+            </label>
+            <input type="file" name="file" id="file" />
+            <input type="submit" value="Post" />
+          </div>
+        </form>
+      </div>
+    </main>
   </body>
 </html>
