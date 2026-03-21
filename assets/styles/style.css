@@ -134,3 +134,11 @@ input[type="submit"]:hover {
   padding: 1.5rem;
   margin-top: 2rem;
 }
+
+.post-header {
+  margin-bottom: 1rem;
+}
+
+.post-image {
+  border-radius: var(--border-radius);
+}
