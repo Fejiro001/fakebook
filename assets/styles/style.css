@@ -54,9 +54,10 @@ nav a:hover {
 }
 
 .profile-container {
+  background-color: rgba(41, 148, 255, 0.8);
   width: 5rem;
   height: 5rem;
   border-radius: 50%;
-  background-color: rgba(41, 148, 255, 0.8);
   overflow: hidden;
+  cursor: pointer;
 }
