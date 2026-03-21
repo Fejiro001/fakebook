@@ -30,6 +30,12 @@ a {
   text-decoration: none;
 }
 
+nav a,
+.fa-image,
+input[type="submit"] {
+  transition: var(--transition);
+}
+
 /* HEADER */
 header {
   background-color: var(--secondary-color);
@@ -56,12 +62,13 @@ nav ul,
   font-size: 2.5rem;
 }
 
-nav a {
+nav a,
+.fa-image {
   color: var(--light-color);
-  transition: var(--transition);
 }
 
-nav a:hover {
+nav a:hover,
+.fa-image:hover {
   color: #fff;
 }
 
@@ -94,20 +101,26 @@ form {
 textarea {
   background-color: transparent;
   resize: none;
+  color: #fff;
+  font-size: 1.6rem;
 }
 
 .fa-image {
-  color: var(--light-color);
   font-size: 3rem;
+  cursor: pointer;
 }
 
 input[type="file"] {
   display: none;
 }
 
-input[type=submit] {
+input[type="submit"] {
   background-color: var(--primary-color);
   color: #fff;
   border-radius: var(--border-radius);
   padding: 0.5rem 1.5rem;
+}
+
+input[type="submit"]:hover {
+  box-shadow: 0 0 8px 4px rgba(3, 100, 228, 0.4);
 }
