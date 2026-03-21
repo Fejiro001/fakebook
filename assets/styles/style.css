@@ -94,7 +94,7 @@ main {
 
 form {
   background-color: var(--secondary-color);
-  padding: 1rem;
+  padding: 1.5rem;
   border-radius: var(--border-radius);
 }
 
