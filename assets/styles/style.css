@@ -96,3 +96,18 @@ textarea {
   resize: none;
 }
 
+.fa-image {
+  color: var(--light-color);
+  font-size: 3rem;
+}
+
+input[type="file"] {
+  display: none;
+}
+
+input[type=submit] {
+  background-color: var(--primary-color);
+  color: #fff;
+  border-radius: var(--border-radius);
+  padding: 0.5rem 1.5rem;
+}
