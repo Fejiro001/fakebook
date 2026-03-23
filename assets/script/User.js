@@ -10,4 +10,30 @@ export class User {
     this.userName = userName;
     this.email = email;
   }
+
+  set id(id) {
+    this.#id = id;
+  }
+  set name(name) {
+    this.#name = name;
+  }
+  set userName(userName) {
+    this.#userName = userName;
+  }
+  set email(email) {
+    this.#email = email;
+  }
+
+  get id() {
+    return this.#id;
+  }
+  get name() {
+    return this.#name;
+  }
+  get userName() {
+    return this.#userName;
+  }
+  get email() {
+    return this.#email;
+  }
 }
