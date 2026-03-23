@@ -3,8 +3,11 @@ export class User {
   #name;
   #userName;
   #email;
-  
-  constructor() {
-    
+
+  constructor(id, fullName, userName, email) {
+    this.id = id;
+    this.name = fullName;
+    this.userName = userName;
+    this.email = email;
   }
 }
