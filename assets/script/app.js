@@ -31,3 +31,9 @@ function createImageFile() {
 }
 
 postImage.addEventListener("change", createImageFile);
+
+function createPost() {
+  
+}
+
+postForm.addEventListener("submit", createPost);
