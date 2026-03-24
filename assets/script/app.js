@@ -50,6 +50,16 @@ function createPost(e) {
   if (imageChild) {
     postArticle.appendChild(imageChild);
   }
+
+  if (textChild || imageChild) {
+    postContainer.appendChild(postArticle);
+    postText.value = "";
+    textChild = null;
+
+    postImage.value = "";
+    imageFileName.textContent = "";
+    imageChild = null;
+  }
 }
 
 postForm.addEventListener("submit", (e) => createPost(e));
