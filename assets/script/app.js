@@ -52,7 +52,7 @@ function createPost(e) {
   }
 
   if (textChild || imageChild) {
-    postContainer.appendChild(postArticle);
+    postContainer.prepend(postArticle);
     postText.value = "";
     textChild = null;
 
