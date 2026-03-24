@@ -6,12 +6,23 @@ const postImage = document.getElementById("file");
 const imageFileName = document.querySelector(".file-name");
 const postContainer = document.getElementById("posts-section");
 
-let fileName = "";
+let imageChild = null;
 
-postImage.addEventListener("change", () => {
-  fileName = postImage.files[0]?.name;
+function setImageFile() {
+  const file = postImage.files[0];
+  const fileType = file?.type;
 
+  // Validate file type
+  if (!fileType.includes("image/")) {
+    imageFileName.textContent = "Wrong file type";
+    return;
+  }
+
+  // Display file name
+  fileName = file?.name;
   if (fileName) {
     imageFileName.textContent = fileName;
   }
-});
+}
+
+postImage.addEventListener("change", setImageFile);
