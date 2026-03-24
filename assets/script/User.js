@@ -38,4 +38,8 @@ export class User {
   get email() {
     return this.#email;
   }
+
+  getInfo() {
+    return { name: this.#name, userName: this.#userName, email: this.#email };
+  }
 }
