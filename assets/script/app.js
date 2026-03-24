@@ -7,6 +7,7 @@ const imageFileName = document.querySelector(".file-name");
 const postContainer = document.getElementById("posts-section");
 
 let imageChild = null;
+let textChild = null;
 
 function createImageFile() {
   const file = postImage.files[0];
@@ -25,15 +26,26 @@ function createImageFile() {
   }
 
   // Create image child
-  imageChild = document.createElement("img");
-  imageChild.src = URL.createObjectURL(file);
-  imageChild.classList.add("post-image");
+  if (file) {
+    console.log(file);
+    imageChild = document.createElement("img");
+    imageChild.src = URL.createObjectURL(file);
+    imageChild.classList.add("post-image");
+  }
 }
 
 postImage.addEventListener("change", createImageFile);
 
-function createPost() {
-  
+function createPost(e) {
+  e.preventDefault();
+
+  let postArticle = document.createElement("article");
+
+  if (postText.value) {
+    textChild = document.createElement("p");
+    textChild.textContent = postText.value;
+    postArticle.appendChild(textChild);
+  }
 }
 
-postForm.addEventListener("submit", createPost);
+postForm.addEventListener("submit", (e) => createPost(e));
