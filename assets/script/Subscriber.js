@@ -32,4 +32,14 @@ export class Subscriber extends User {
   get canMonetize() {
     return this.#canMonetize;
   }
+
+  getInfo() {
+    const userInfoObject = super.getInfo();
+    return {
+      ...userInfoObject,
+      pages: this.#pages,
+      groups: this.#groups,
+      canMonetize: this.#canMonetize
+    };
+  }
 }

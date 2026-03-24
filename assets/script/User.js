@@ -40,6 +40,10 @@ export class User {
   }
 
   getInfo() {
-    return { name: this.#name, userName: this.#userName, email: this.#email };
+    return {
+      name: this.#name,
+      userName: this.#userName,
+      email: this.#email
+    };
   }
 }
