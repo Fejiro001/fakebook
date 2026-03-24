@@ -46,6 +46,10 @@ function createPost(e) {
     textChild.textContent = postText.value;
     postArticle.appendChild(textChild);
   }
+
+  if (imageChild) {
+    postArticle.appendChild(imageChild);
+  }
 }
 
 postForm.addEventListener("submit", (e) => createPost(e));
