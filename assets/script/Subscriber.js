@@ -12,4 +12,24 @@ export class Subscriber extends User {
     this.groups = groups;
     this.canMonetize = canMonetize;
   }
+
+  set pages(pages) {
+    this.#pages = pages;
+  }
+  set groups(groups) {
+    this.#groups = groups;
+  }
+  set canMonetize(canMonetize) {
+    this.#canMonetize = canMonetize;
+  }
+
+  get pages() {
+    return this.#pages;
+  }
+  get groups() {
+    return this.#groups;
+  }
+  get canMonetize() {
+    return this.#canMonetize;
+  }
 }
