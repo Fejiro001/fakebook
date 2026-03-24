@@ -8,7 +8,7 @@ const postContainer = document.getElementById("posts-section");
 
 let imageChild = null;
 
-function setImageFile() {
+function createImageFile() {
   const file = postImage.files[0];
   const fileType = file?.type;
 
@@ -19,10 +19,15 @@ function setImageFile() {
   }
 
   // Display file name
-  fileName = file?.name;
+  const fileName = file?.name;
   if (fileName) {
     imageFileName.textContent = fileName;
   }
+
+  // Create image child
+  imageChild = document.createElement("img");
+  imageChild.src = URL.createObjectURL(file);
+  imageChild.classList.add("post-image");
 }
 
-postImage.addEventListener("change", setImageFile);
+postImage.addEventListener("change", createImageFile);
