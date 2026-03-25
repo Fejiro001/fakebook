@@ -9,6 +9,15 @@ const postContainer = document.getElementById("posts-section");
 
 let imageChild = null;
 let textChild = null;
+const firstSubscriber = new Subscriber(
+  "FB-1",
+  "Fejiro Abere",
+  "Fejiro001",
+  "aberefejiro@gmail.com",
+  ["Fun Facts", "Tech News"],
+  ["Web Dev", "Newcomers"],
+  true
+);
 
 function createImageFile() {
   const file = postImage.files[0];
@@ -58,6 +67,8 @@ function createPostHeader() {
   postHeaderLeft.appendChild(postImage);
 
   let userName = document.createElement("h2");
+  let name = firstSubscriber.name;
+  userName.textContent = name;
   postHeaderLeft.appendChild(userName);
 
   let profileImage = document.createElement("img");
