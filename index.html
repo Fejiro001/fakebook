@@ -33,7 +33,7 @@
             <li><a href="#">Settings</a></li>
           </ul>
         </nav>
-        <div class="profile-container" title="profile">
+        <div id="profile" class="profile-container" title="profile">
           <img src="./assets/media/profile.webp" alt="User profile image" />
         </div>
       </div>
@@ -58,5 +58,21 @@
         <section class="posts-container" id="posts-section"></section>
       </div>
     </main>
+    <div class="dialog-container">
+      <dialog>
+        <div id="profile" class="profile-container" title="profile">
+          <img src="./assets/media/profile.webp" alt="User profile image" />
+        </div>
+        <h3 class="fullName">Name</h3>
+        <p class="userName">userName</p>
+        <ul>
+          <li><i class="fa-regular fa-envelope"></i>Email</li>
+          <li><i class="fa-regular fa-file-lines"></i>Pages:</li>
+          <li><i class="fa-solid fa-user-group"></i>Groups:</li>
+          <li><i class="fa-solid fa-sack-dollar"></i>Can Monetize:</li>
+        </ul>
+        <button>Close</button>
+      </dialog>
+    </div>
   </body>
 </html>
