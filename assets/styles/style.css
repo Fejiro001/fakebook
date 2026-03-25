@@ -33,7 +33,7 @@ a {
 
 nav a,
 .fa-image,
-input[type="submit"] {
+button {
   transition: var(--transition);
 }
 
@@ -73,7 +73,7 @@ nav a:hover,
 .fa-image,
 .fa-image:hover,
 textarea,
-input[type="submit"],
+button,
 .file-name {
   color: var(--white-color);
 }
@@ -124,13 +124,13 @@ input[type="file"] {
   font-size: 1.3rem;
 }
 
-input[type="submit"] {
+button {
   background-color: var(--primary-color);
   border-radius: var(--border-radius);
   padding: 0.5rem 1.5rem;
 }
 
-input[type="submit"]:hover {
+button:hover {
   box-shadow: 0 0 8px 4px rgba(3, 100, 228, 0.7);
 }
 
