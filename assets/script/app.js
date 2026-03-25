@@ -1,4 +1,5 @@
 "use strict";
+import { Subscriber } from "./Subscriber.js";
 
 const postForm = document.getElementById("posts-form");
 const postText = document.getElementById("post");
@@ -27,7 +28,6 @@ function createImageFile() {
 
   // Create image child
   if (file) {
-    console.log(file);
     imageChild = document.createElement("img");
     imageChild.src = URL.createObjectURL(file);
     imageChild.classList.add("post-image");
@@ -36,10 +36,45 @@ function createImageFile() {
 
 postImage.addEventListener("change", createImageFile);
 
+function createPostHeader() {
+  let postHeader = document.createElement("div");
+  postHeader.classList.add("post-header");
+
+  let postHeaderLeft = document.createElement("div");
+  postHeaderLeft.classList.add("post-left");
+  postHeader.appendChild(postHeaderLeft);
+
+  let now = new Date().toLocaleString("en-ca", {
+    year: "numeric",
+    month: "short",
+    day: "2-digit"
+  });
+  let dateParagraph = document.createElement("p");
+  dateParagraph.innerText = now;
+  postHeader.appendChild(dateParagraph);
+
+  let postImage = document.createElement("div");
+  postImage.classList.add("profile-container");
+  postHeaderLeft.appendChild(postImage);
+
+  let userName = document.createElement("h2");
+  postHeaderLeft.appendChild(userName);
+
+  let profileImage = document.createElement("img");
+  profileImage.src = "./assets/media/profile.webp";
+  profileImage.alt = "User profile image";
+  postImage.appendChild(profileImage);
+
+  return postHeader;
+}
+
 function createPost(e) {
   e.preventDefault();
 
   let postArticle = document.createElement("article");
+
+  const postHeader = createPostHeader();
+  postArticle.appendChild(postHeader);
 
   if (postText.value) {
     textChild = document.createElement("p");
