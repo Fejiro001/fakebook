@@ -26,7 +26,7 @@ function createImageFile() {
   const fileType = file?.type;
 
   // Validate file type
-  if (!fileType.includes("image/")) {
+  if (!fileType || !fileType.includes("image/")) {
     imageFileName.textContent = "Wrong file type";
     return;
   }
@@ -126,7 +126,7 @@ function displayUserInfo() {
 
   const userInfo = `
   <div id="modal" class="modal" role="dialog">
-    <div id="profile" class="profile-container dialog-profile" title="profile">
+    <div class="profile-container dialog-profile" title="profile">
           <img src="./assets/media/profile.webp" alt="User profile image" />
     </div>
     <h3 class="fullName">${user.name}</h3>
