@@ -33,7 +33,7 @@
             <li><a href="#">Settings</a></li>
           </ul>
         </nav>
-        <div class="profile-container" title="profile">
+        <div id="profile" class="profile-container" title="profile">
           <img src="./assets/media/profile.webp" alt="User profile image" />
         </div>
       </div>
@@ -51,12 +51,13 @@
                 <input type="file" name="file" id="file" accept="image/*" />
                 <span class="file-name"></span>
               </div>
-              <input type="submit" value="Post" />
+              <button id="post-button" type="submit">Post</button>
             </div>
           </form>
         </section>
         <section class="posts-container" id="posts-section"></section>
       </div>
     </main>
+    <div id="modal-container" class="hidden dialog-container"></div>
   </body>
 </html>

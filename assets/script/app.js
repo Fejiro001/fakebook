@@ -4,17 +4,19 @@ import { Subscriber } from "./Subscriber.js";
 const postForm = document.getElementById("posts-form");
 const postText = document.getElementById("post");
 const postImage = document.getElementById("file");
+const postButton = document.getElementById("post-button");
 const imageFileName = document.querySelector(".file-name");
 const postContainer = document.getElementById("posts-section");
+const userProfile = document.getElementById("profile");
+const modalContainer = document.getElementById("modal-container");
 
 let imageChild = null;
-let textChild = null;
 const firstSubscriber = new Subscriber(
-  "FB-1",
+  1,
   "Fejiro Abere",
   "Fejiro001",
   "aberefejiro@gmail.com",
-  ["Fun Facts", "Tech News"],
+  ["Fun Facts Page", "Latest Tech Page"],
   ["Web Dev", "Newcomers"],
   true
 );
@@ -24,7 +26,7 @@ function createImageFile() {
   const fileType = file?.type;
 
   // Validate file type
-  if (!fileType.includes("image/")) {
+  if (!fileType || !fileType.includes("image/")) {
     imageFileName.textContent = "Wrong file type";
     return;
   }
@@ -87,25 +89,78 @@ function createPost(e) {
   const postHeader = createPostHeader();
   postArticle.appendChild(postHeader);
 
-  if (postText.value) {
-    textChild = document.createElement("p");
-    textChild.textContent = postText.value;
-    postArticle.appendChild(textChild);
-  }
+  const text = createPostText();
+  if (text) postArticle.appendChild(text);
 
-  if (imageChild) {
-    postArticle.appendChild(imageChild);
-  }
+  const image = createPostImage(imageChild);
+  if (image) postArticle.appendChild(image);
 
-  if (textChild || imageChild) {
+  if (text || image) {
     postContainer.prepend(postArticle);
-    postText.value = "";
-    textChild = null;
-
-    postImage.value = "";
-    imageFileName.textContent = "";
-    imageChild = null;
+    resetForm();
   }
 }
 
-postForm.addEventListener("submit", (e) => createPost(e));
+function createPostText() {
+  if (!postText.value) return null;
+
+  const textChild = document.createElement("p");
+  textChild.textContent = postText.value;
+  return textChild;
+}
+
+function createPostImage(image) {
+  if (!image) return null;
+  return image;
+}
+
+function resetForm() {
+  postText.value = "";
+  postImage.value = "";
+  imageFileName.textContent = "";
+  imageChild = null;
+}
+
+postForm.addEventListener("submit", createPost);
+
+function showModal() {
+  displayUserInfo();
+  modalContainer.classList.remove("hidden");
+}
+
+function closeModal() {
+  modalContainer.classList.add("hidden");
+}
+
+function getUserInfoHtml(user) {
+  return `
+  <div id="modal" class="modal" role="dialog">
+    <div class="profile-container dialog-profile" title="profile">
+          <img src="./assets/media/profile.webp" alt="User profile image" />
+    </div>
+    <h3 class="fullName">${user.name}</h3>
+    <p class="userName">${user.userName}</p>
+    <ul class="other-info">
+      <li class="email">
+        <i class="fa-regular fa-envelope"></i>
+        ${user.email}
+      </li>
+      <li class="pages">
+        <i class="fa-regular fa-file-lines"></i> Pages: ${user.pages.join(", ")}</li>
+      <li class="groups"><i class="fa-solid fa-user-group"></i> Groups: ${user.groups.join(", ")}</li>
+      <li class="monetize"><i class="fa-solid fa-sack-dollar"></i> Can Monetize:${user.canMonetize ? "Yes" : "No"}</li>
+    </ul>
+    <button id="close-btn" class="close-btn" type="button">Close</button>
+  </div>`;
+}
+
+function displayUserInfo() {
+  const user = firstSubscriber.getInfo();
+  const userInfo = getUserInfoHtml(user);
+
+  modalContainer.innerHTML = userInfo;
+
+  document.getElementById("close-btn").addEventListener("click", closeModal);
+}
+
+userProfile.addEventListener("click", showModal);
