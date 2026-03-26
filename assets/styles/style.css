@@ -179,6 +179,10 @@ button:hover {
   background-color: rgba(20, 22, 29, 0.614);
 }
 
+.hidden {
+  display: none;
+}
+
 .dialog-container > div {
   display: grid;
   place-items: center;
