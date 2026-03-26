@@ -48,7 +48,7 @@ header {
 }
 
 .header-container,
-nav ul,
+.navigation-list,
 .form-footer,
 .post-header,
 .post-left {
@@ -84,6 +84,10 @@ button,
   border-radius: 50%;
   overflow: hidden;
   cursor: pointer;
+}
+
+.burger-menu {
+  display: none;
 }
 
 /* FORM */
@@ -209,4 +213,48 @@ button:hover {
 
 .close-btn {
   margin-top: 1.2rem;
+}
+
+@media (max-width: 1024px) {
+  nav {
+    display: none;
+  }
+
+  .burger-container {
+    display: flex;
+    gap: 1.5rem;
+  }
+
+  .burger-menu {
+    display: block;
+    background-color: transparent;
+  }
+
+  .burger-menu:hover {
+    background-color: var(--primary-color);
+  }
+
+  .show-menu {
+    display: block;
+    position: absolute;
+    top: 7rem;
+    padding: 3rem 2rem;
+    left: 0;
+    width: 100%;
+    height: fit-content;
+    background-color: var(--secondary-color);
+  }
+
+  .navigation-list {
+    flex-direction: column;
+    font-size: 2rem;
+  }
+
+  .navigation-list a {
+    border-bottom: 2px solid transparent;
+  }
+
+  .navigation-list a:hover {
+    border-bottom-color: var(--primary-color);
+  }
 }

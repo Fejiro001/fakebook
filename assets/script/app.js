@@ -4,11 +4,12 @@ import { Subscriber } from "./Subscriber.js";
 const postForm = document.getElementById("posts-form");
 const postText = document.getElementById("post");
 const postImage = document.getElementById("file");
-const postButton = document.getElementById("post-button");
 const imageFileName = document.querySelector(".file-name");
 const postContainer = document.getElementById("posts-section");
 const userProfile = document.getElementById("profile");
 const modalContainer = document.getElementById("modal-container");
+const menu = document.querySelector(".burger-menu");
+const navigation = document.getElementById("navigation");
 
 let imageChild = null;
 const firstSubscriber = new Subscriber(
@@ -20,6 +21,10 @@ const firstSubscriber = new Subscriber(
   ["Web Dev", "Newcomers"],
   true
 );
+
+menu.addEventListener("click", () => {
+  navigation.classList.toggle("show-menu");
+});
 
 function createImageFile() {
   const file = postImage.files[0];
@@ -164,3 +169,5 @@ function displayUserInfo() {
 }
 
 userProfile.addEventListener("click", showModal);
+
+modalContainer.addEventListener("click", closeModal);

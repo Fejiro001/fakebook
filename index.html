@@ -24,8 +24,8 @@
         <a href="index.html">
           <h1 class="app-name">Fakebook</h1>
         </a>
-        <nav>
-          <ul>
+        <nav id="navigation">
+          <ul class="navigation-list">
             <li><a href="#">Friends</a></li>
             <li><a href="#">Pages</a></li>
             <li><a href="#">Groups</a></li>
@@ -33,8 +33,13 @@
             <li><a href="#">Settings</a></li>
           </ul>
         </nav>
-        <div id="profile" class="profile-container" title="profile">
-          <img src="./assets/media/profile.webp" alt="User profile image" />
+        <div class="burger-container">
+          <div id="profile" class="profile-container" title="profile">
+            <img src="./assets/media/profile.webp" alt="User profile image" />
+          </div>
+          <button class="burger-menu">
+            <i class="fa-solid fa-bars"></i>
+          </button>
         </div>
       </div>
     </header>
