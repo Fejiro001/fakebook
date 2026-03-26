@@ -117,6 +117,10 @@ function showModal() {
   modalContainer.classList.remove("hidden");
 }
 
+function closeModal() {
+  modalContainer.classList.add("hidden");
+}
+
 function displayUserInfo() {
   const user = firstSubscriber.getInfo();
 
@@ -137,10 +141,12 @@ function displayUserInfo() {
       <li class="groups"><i class="fa-solid fa-user-group"></i> Groups: ${user.groups.join(", ")}</li>
       <li class="monetize"><i class="fa-solid fa-sack-dollar"></i> Can Monetize:${user.canMonetize ? "Yes" : "No"}</li>
     </ul>
-    <button class="close-btn" type="button">Close</button>
+    <button id="close-btn" class="close-btn" type="button">Close</button>
   </div>`;
 
   modalContainer.innerHTML = userInfo;
+
+  document.getElementById("close-btn").addEventListener("click", closeModal);
 }
 
 userProfile.addEventListener("click", showModal);
