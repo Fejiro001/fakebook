@@ -153,7 +153,7 @@ function getUserInfoHtml(user) {
       <li class="pages">
         <i class="fa-regular fa-file-lines"></i> Pages: ${user.pages.join(", ")}</li>
       <li class="groups"><i class="fa-solid fa-user-group"></i> Groups: ${user.groups.join(", ")}</li>
-      <li class="monetize"><i class="fa-solid fa-sack-dollar"></i> Can Monetize: ${user.canMonetize ? "Yes" : "No"}</li>
+      <li class="monetize"><i class="fa-solid fa-sack-dollar"></i> Can Monetize: ${user.canMonetize ? " Yes" : " No"}</li>
     </ul>
     <button id="close-btn" class="close-btn" type="button">Close</button>
   </div>`;
