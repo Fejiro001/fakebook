@@ -6,15 +6,17 @@ const postText = document.getElementById("post");
 const postImage = document.getElementById("file");
 const imageFileName = document.querySelector(".file-name");
 const postContainer = document.getElementById("posts-section");
+const userProfile = document.getElementById("profile");
+const modalContainer = document.getElementById("modal-container");
 
 let imageChild = null;
 let textChild = null;
 const firstSubscriber = new Subscriber(
-  "FB-1",
+  1,
   "Fejiro Abere",
   "Fejiro001",
   "aberefejiro@gmail.com",
-  ["Fun Facts", "Tech News"],
+  ["Fun Facts Page", "Latest Tech Page"],
   ["Web Dev", "Newcomers"],
   true
 );
@@ -109,3 +111,36 @@ function createPost(e) {
 }
 
 postForm.addEventListener("submit", (e) => createPost(e));
+
+function showModal() {
+  displayUserInfo();
+  modalContainer.classList.remove("hidden");
+}
+
+function displayUserInfo() {
+  const user = firstSubscriber.getInfo();
+
+  const userInfo = `
+  <div id="modal" class="modal" role="dialog">
+    <div id="profile" class="profile-container dialog-profile" title="profile">
+          <img src="./assets/media/profile.webp" alt="User profile image" />
+    </div>
+    <h3 class="fullName">${user.name}</h3>
+    <p class="userName">${user.userName}</p>
+    <ul class="other-info">
+      <li class="email">
+        <i class="fa-regular fa-envelope"></i>
+        ${user.email}
+      </li>
+      <li class="pages">
+        <i class="fa-regular fa-file-lines"></i> Pages: ${user.pages.join(", ")}</li>
+      <li class="groups"><i class="fa-solid fa-user-group"></i> Groups: ${user.groups.join(", ")}</li>
+      <li class="monetize"><i class="fa-solid fa-sack-dollar"></i> Can Monetize:${user.canMonetize ? "Yes" : "No"}</li>
+    </ul>
+    <button class="close-btn" type="button">Close</button>
+  </div>`;
+
+  modalContainer.innerHTML = userInfo;
+}
+
+userProfile.addEventListener("click", showModal);
