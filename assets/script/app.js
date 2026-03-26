@@ -4,13 +4,13 @@ import { Subscriber } from "./Subscriber.js";
 const postForm = document.getElementById("posts-form");
 const postText = document.getElementById("post");
 const postImage = document.getElementById("file");
+const postButton = document.getElementById("post-button");
 const imageFileName = document.querySelector(".file-name");
 const postContainer = document.getElementById("posts-section");
 const userProfile = document.getElementById("profile");
 const modalContainer = document.getElementById("modal-container");
 
 let imageChild = null;
-let textChild = null;
 const firstSubscriber = new Subscriber(
   1,
   "Fejiro Abere",
@@ -89,28 +89,39 @@ function createPost(e) {
   const postHeader = createPostHeader();
   postArticle.appendChild(postHeader);
 
-  if (postText.value) {
-    textChild = document.createElement("p");
-    textChild.textContent = postText.value;
-    postArticle.appendChild(textChild);
-  }
+  const text = createPostText();
+  if (text) postArticle.appendChild(text);
 
-  if (imageChild) {
-    postArticle.appendChild(imageChild);
-  }
+  const image = createPostImage(imageChild);
+  if (image) postArticle.appendChild(image);
 
-  if (textChild || imageChild) {
+  if (text || image) {
     postContainer.prepend(postArticle);
-    postText.value = "";
-    textChild = null;
-
-    postImage.value = "";
-    imageFileName.textContent = "";
-    imageChild = null;
+    resetForm();
   }
 }
 
-postForm.addEventListener("submit", (e) => createPost(e));
+function createPostText() {
+  if (!postText.value) return null;
+
+  const textChild = document.createElement("p");
+  textChild.textContent = postText.value;
+  return textChild;
+}
+
+function createPostImage(image) {
+  if (!image) return null;
+  return image;
+}
+
+function resetForm() {
+  postText.value = "";
+  postImage.value = "";
+  imageFileName.textContent = "";
+  imageChild = null;
+}
+
+postForm.addEventListener("submit", createPost);
 
 function showModal() {
   displayUserInfo();
@@ -121,10 +132,8 @@ function closeModal() {
   modalContainer.classList.add("hidden");
 }
 
-function displayUserInfo() {
-  const user = firstSubscriber.getInfo();
-
-  const userInfo = `
+function getUserInfoHtml(user) {
+  return `
   <div id="modal" class="modal" role="dialog">
     <div class="profile-container dialog-profile" title="profile">
           <img src="./assets/media/profile.webp" alt="User profile image" />
@@ -143,6 +152,11 @@ function displayUserInfo() {
     </ul>
     <button id="close-btn" class="close-btn" type="button">Close</button>
   </div>`;
+}
+
+function displayUserInfo() {
+  const user = firstSubscriber.getInfo();
+  const userInfo = getUserInfoHtml(user);
 
   modalContainer.innerHTML = userInfo;
 
